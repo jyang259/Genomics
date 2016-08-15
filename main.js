@@ -1,30 +1,18 @@
+//search for input gene after "Enter" key is pressed
+$(document).keypress(function(e){
+	if(e.which == 13){
+		searchGene();
+	}
+});
 
+//search for input gene after "Submit" button is pressed
+$(function(){
+	$("#submit-gene").click(searchGene);
+});
 
+//function for displaying api call results with input gene
 function searchGene(){
-	var userInput = document.getElementById('geneEntry').value;
+	var userInput = document.getElementById('gene-entry').value;
     var url = "http://www.cbioportal.org/webservice.do?cmd=getGeneticProfiles&cancer_study_id=" + userInput;
     $('#stage').load(url);
 }
-
-
-/*(function($) {
-    $.fn.onEnter = function(func) {
-        this.bind('keypress', function(e) {
-            if (e.keyCode == 13){
-            	func.apply(this, [e]);
-            	e.stopPropagation();
-            }
-        });               
-        return this; 
-     };
-})(jQuery);*/
-
-$( function () {
-    //console.log($("geneEntry"));
-    $("#geneEntry").onEnter(searchGene);
-});
-
-$(function(){
-	$("#submitGene").click(searchGene);
-});
-
