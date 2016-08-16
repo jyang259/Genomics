@@ -1,4 +1,5 @@
 $(function(){
+	$('#gene-entry').focus();
 	//search for input gene after "Submit" button is pressed
 	$('#submit-gene').click(searchGene);
 	//search for input gene after "Enter" key is pressed
@@ -37,6 +38,7 @@ function checkTextField(){
 
 function reset(){
 	$('#gene-entry').val('');
+	$('#gene-entry').focus();
 	document.getElementById('stage').innerHTML = "";
 	$('#export-to-xls').attr('disabled', true);
 	$('#reset-search').attr('disabled', true);
