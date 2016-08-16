@@ -24,11 +24,13 @@ function searchGene(){
 
 function checkTextField(){
 	if($('#gene-entry').val().length > 0){
-		$('#reset-search').attr('disabled', false);
 		$('#submit-gene').attr('disabled', false);
+		$('#reset-search').attr('disabled', false);
 	}
 	else{
-		$('#reset-search').attr('disabled', true);
+		if(!$.trim($('#stage').html()).length){
+			$('#reset-search').attr('disabled', true);
+		}
 		$('#submit-gene').attr('disabled', true);
 	}
 }
