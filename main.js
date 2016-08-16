@@ -1,17 +1,16 @@
 $(function(){
 	//search for input gene after "Submit" button is pressed
 	$('#submit-gene').click(searchGene);
+	//search for input gene after "Enter" key is pressed
+	$('#gene-entry').on("keydown", function(e){
+		if(e.keyCode == 13){
+			searchGene();
+		}
+	});
 	//check if textfield is empty --> enables reset
 	$('#gene-entry').on("keyup", checkTextField);
 	//if reset is pressed, reset search box and stage
 	$('#reset-search').click(reset);
-});
-
-//search for input gene after "Enter" key is pressed
-$(document).keypress(function(e){
-	if(e.which == 13){
-		searchGene();
-	}
 });
 
 //function for displaying api call results with input gene
@@ -32,7 +31,6 @@ function checkTextField(){
 		$('#reset-search').attr('disabled', true);
 		$('#submit-gene').attr('disabled', true);
 	}
-
 }
 
 function reset(){
