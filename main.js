@@ -46,3 +46,8 @@ function reset(){
 	$('#submit-cancer-study').attr('disabled', true);
 }
 
+function parseTSV(){
+	var unparsedData = document.getElementById('stage');
+	var parsedData = d3.tsvParse(unparsedData);
+}
+
