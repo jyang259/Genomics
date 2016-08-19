@@ -12,6 +12,11 @@ $(function(){
 	$('#cancer-study-entry').on("keyup", checkTextField);
 	//if reset is pressed, reset search box and stage
 	$('#reset-search').click(reset);
+
+	//*************************
+	//for now - testing tsv parsing function in d3 library - https://github.com/d3/d3-dsv/blob/master/README.md#tsvParseRows
+	$('export-to-xls').click(parseTSV);
+	//*************************
 });
 
 //function for displaying api call results with input gene
