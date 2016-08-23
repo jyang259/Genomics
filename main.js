@@ -64,7 +64,19 @@ function parseTSV(){
 }
 
 //create table corresponding to url output
-function createTable(parsedTSV){
+function createTable(parseTSV){
 //http://stackoverflow.com/questions/16126357/create-html-table-using-javascript
+//http://stackoverflow.com/questions/1413952/how-to-create-a-new-table-with-rows-using-jquery-and-wrap-it-inside-div
+	var data = parseTSV;
+	var html = '<table><thead><tr>...</tr></thead><tbody>';
+	for(var i = 0, len = data.length; i < len; i++){
+		html += '<tr>';
+		for(var j = 0, rowLen = data[i].length; j < rowLen; j++){
+			html += '<td>' + data[i][j] + '</td>';
+		}
+		html += "</tr>";
+	}
+	html += '</tbody><tfoot><tr>...</tr></tfoot></table>';
+	$(html).appendTo('#parsedTable');
 }
 
