@@ -15,7 +15,7 @@ $(function(){
 
 	//*************************
 	//for now - testing tsv parsing function in d3 library - https://github.com/d3/d3-dsv/blob/master/README.md#tsvParseRows
-	$('export-to-xls').click(parseTSV);
+	$('#export-to-xls').click(parseTSV);
 	//*************************
 });
 
@@ -51,8 +51,15 @@ function reset(){
 	$('#submit-cancer-study').attr('disabled', true);
 }
 
+//
 function parseTSV(){
-	var unparsedData = document.getElementById('stage');
+	var unparsedData = document.getElementById('stage').innerHTML;
 	var parsedData = d3.tsvParse(unparsedData);
+	console.log(parsedData);
+	/*
+	var unparsedData = document.getElementById('stage').innerHTML;
+	document.getElementById('stage').innerHTML = "";
+	document.getElementById('stage').innerHTML = "new stuff" + unparsedData; 
+	*/
 }
 
