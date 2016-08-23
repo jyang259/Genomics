@@ -63,3 +63,8 @@ function parseTSV(){
 	*/
 }
 
+//create table corresponding to url output
+function createTable(parsedTSV){
+//http://stackoverflow.com/questions/16126357/create-html-table-using-javascript
+}
+
